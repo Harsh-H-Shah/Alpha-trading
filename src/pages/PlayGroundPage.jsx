@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 const PlayGroundPage = () => {
   useEffect(() => {
@@ -18,7 +20,9 @@ const PlayGroundPage = () => {
   }, []);
   return (
     <div>
+      <Navbar />
       <h1>Khelo dimaag se</h1>
+      <Footer />
     </div>
   );
 };
