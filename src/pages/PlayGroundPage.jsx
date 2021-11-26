@@ -21,7 +21,7 @@ const PlayGroundPage = () => {
   return (
     <div>
       <Navbar />
-      <h1>Khelo dimaag se</h1>
+      <h1>Play ground page</h1>
       <Footer />
     </div>
   );
