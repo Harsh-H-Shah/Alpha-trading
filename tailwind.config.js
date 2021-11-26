@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       serif: 'Quicksand',
       sans: 'Montserrat',
+      display: 'Megrim',
     },
   },
   variants: {
