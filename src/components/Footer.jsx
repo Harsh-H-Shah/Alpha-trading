@@ -1,42 +1,70 @@
 import React from 'react';
 import '../static/css/footer.css';
+import Logo from '../static/images/LogoBlack.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div>
-      <div class="wrapper flex justify-around bg-gray-900 mt-10 p-8">
-        <div class="icon facebook">
-          <div class="tooltip">Facebook</div>
-          <span>
-            <i class="fab fa-facebook-f"></i>
-          </span>
+    <footer className="flex flex-row justify-evenly align-middle bg-black">
+      <section className="flex flex-col content-end mx-10 text-lg font font-light text-white tracking-wider mb-8">
+        <img src={Logo} alt="logo" className="h-28" />
+        <p>
+          Alpha Trading Ltd.
+          <br />
+          All rights reserved.
+        </p>
+        <div className="flex flex-row justify-between mt-4">
+          <a href="www.facebook.com">
+            <i className="fab fa-facebook fa-2x" />
+          </a>
+          <a href="https://twitter.com/home">
+            <i className="fab fa-twitter fa-2x" />
+          </a>
+          <a href="https://www.linkedin.com/feed/">
+            <i className="fab fa-linkedin fa-2x" />
+          </a>
+          <a href="https://github.com/Harsh-H-Shah/Alpha-trading">
+            <i className="fab fa-github fa-2x" />
+          </a>
         </div>
-        <div class="icon twitter">
-          <div class="tooltip">Twitter</div>
-          <span>
-            <i class="fab fa-twitter"></i>
-          </span>
-        </div>
-        <div class="icon instagram">
-          <div class="tooltip">Instagram</div>
-          <span>
-            <i class="fab fa-instagram"></i>
-          </span>
-        </div>
-        <div class="icon github">
-          <div class="tooltip">Github</div>
-          <span>
-            <i class="fab fa-github"></i>
-          </span>
-        </div>
-        <div class="icon youtube">
-          <div class="tooltip">Youtube</div>
-          <span>
-            <i class="fab fa-youtube"></i>
-          </span>
-        </div>
-      </div>
-    </div>
+      </section>
+      <section className="flex flex-col content-end mx-10 font-light text-white tracking-wider">
+        <p className="font-medium text-xl my-6">Products</p>
+        <Link to="/playground" className="mt-1">
+          Playground
+        </Link>
+        <Link to="/playground" className="mt-1">
+          Prices
+        </Link>
+        <Link to="/blog" className="mt-1">
+          Blogs
+        </Link>
+        <Link to="/blog" className="mt-1">
+          News
+        </Link>
+        <Link to="/blog" className="mt-1">
+          Guidances
+        </Link>
+      </section>
+      <section className="flex flex-col content-end mx-10 font-light text-white tracking-wider">
+        <p className="font-medium text-xl my-6">Alpha</p>
+        <Link to="/about" className="mt-1">
+          About us
+        </Link>
+        <Link to="/about" className="mt-1">
+          Help and support
+        </Link>
+        <Link to="/about" className="mt-1">
+          Careers
+        </Link>
+        <Link to="/terms" className="mt-1">
+          Privacy Policy
+        </Link>
+        <Link to="/terms" className="mt-1">
+          Terms of Use
+        </Link>
+      </section>
+    </footer>
   );
 };
 
