@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import Logo from '../static/images/LogoGrey.png';
+import Logo from '../static/images/LogoBlack.png';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
+import Profile from './Profile';
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
   return (
-    <nav className="h-16 bg-black flex flex-row justify-between items-center font-serif">
+    <nav className="h-16 bg-black flex flex-row justify-between items-center font-serif shadow-md">
       <Link to="/">
         <img src={Logo} alt="Logo" className="h-16" />
       </Link>
@@ -25,7 +26,7 @@ const Navbar = () => {
         </Link>
       </section>
       {user ? (
-        <p className="text-white text-xl mr-4">{user.email}</p>
+        <Profile />
       ) : (
         <Link to="/login">
           <p className="text-white text-xl mr-4">Login/SignUp</p>

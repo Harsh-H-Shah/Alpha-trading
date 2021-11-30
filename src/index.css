@@ -3,3 +3,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #555;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(73, 73, 73, 0.9312048922763781) 46%,
+    rgba(161, 161, 161, 1) 100%
+  );
+  border-radius: 10px;
+}
