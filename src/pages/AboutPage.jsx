@@ -6,9 +6,9 @@ const AboutPage = () => {
   return (
     <div>
       <Navbar />
-      <section className="mt-6 mx-10">
+      <section className="my-10 mx-10">
         <h1 className="text-2xl font-sans font-bold">About us</h1>
-        <p className="text-xl font-sans font-light mt-10">
+        <p className="text-xl font-sans font-light mt-6">
           Alpha Trading is a platform which primarily focuses on helping the
           youth with investing. We are developing a Playground for users in
           which users can experience trading without risking their fortune. We

@@ -1,12 +1,11 @@
 import React from 'react';
-import '../static/css/footer.css';
 import Logo from '../static/images/LogoBlack.png';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="flex flex-row justify-evenly align-middle bg-black">
-      <section className="flex flex-col content-end mx-10 text-lg font font-light text-white tracking-wider mb-8">
+    <footer className="flex flex-row justify-evenly font-sans font-light align-middle bg-black">
+      <section className="flex flex-col content-end mx-10 text-lg text-white tracking-wider mb-8">
         <img src={Logo} alt="logo" className="h-28" />
         <p>
           Alpha Trading Ltd.
@@ -28,7 +27,7 @@ const Footer = () => {
           </a>
         </div>
       </section>
-      <section className="flex flex-col content-end mx-10 font-light text-white tracking-wider">
+      <section className="flex flex-col content-end mx-10 text-white tracking-wider">
         <p className="font-medium text-xl my-6">Products</p>
         <Link to="/playground" className="mt-1">
           Playground
@@ -46,7 +45,7 @@ const Footer = () => {
           Guidances
         </Link>
       </section>
-      <section className="flex flex-col content-end mx-10 font-light text-white tracking-wider">
+      <section className="flex flex-col content-end mx-10 text-white tracking-wider">
         <p className="font-medium text-xl my-6">Alpha</p>
         <Link to="/about" className="mt-1">
           About us
@@ -57,7 +56,7 @@ const Footer = () => {
         <Link to="/about" className="mt-1">
           Careers
         </Link>
-        <Link to="/terms" className="mt-1">
+        <Link to="/privacy-policy" className="mt-1">
           Privacy Policy
         </Link>
         <Link to="/terms" className="mt-1">

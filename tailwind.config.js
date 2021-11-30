@@ -7,6 +7,10 @@ module.exports = {
       sans: 'Montserrat',
       display: 'Megrim',
     },
+    boxShadow: {
+      neuShadow:
+        '-4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.219)',
+    },
   },
   variants: {
     extend: {},
