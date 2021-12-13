@@ -7,11 +7,7 @@ const Footer = () => {
     <footer className="flex flex-row justify-evenly font-sans font-light align-middle bg-black">
       <section className="flex flex-col content-end mx-10 text-lg text-white tracking-wider mb-8">
         <img src={Logo} alt="logo" className="h-28" />
-        <p>
-          Alpha Trading Ltd.
-          <br />
-          All rights reserved.
-        </p>
+        <p>Alpha Trading Ltd.</p>
         <div className="flex flex-row justify-between mt-4">
           <a href="www.facebook.com">
             <i className="fab fa-facebook fa-2x" />
@@ -29,19 +25,16 @@ const Footer = () => {
       </section>
       <section className="flex flex-col content-end mx-10 text-white tracking-wider">
         <p className="font-medium text-xl my-6">Products</p>
-        <Link to="/playground" className="mt-1">
+        <Link to="/portfolio" className="mt-1">
           Playground
         </Link>
-        <Link to="/playground" className="mt-1">
-          Prices
+        <Link to="/portfolio" className="mt-1">
+          Stock Prices
         </Link>
-        <Link to="/blog" className="mt-1">
-          Blogs
-        </Link>
-        <Link to="/blog" className="mt-1">
+        <Link to="/news" className="mt-1">
           News
         </Link>
-        <Link to="/blog" className="mt-1">
+        <Link to="/news" className="mt-1">
           Guidances
         </Link>
       </section>
@@ -52,9 +45,6 @@ const Footer = () => {
         </Link>
         <Link to="/about" className="mt-1">
           Help and support
-        </Link>
-        <Link to="/about" className="mt-1">
-          Careers
         </Link>
         <Link to="/privacy-policy" className="mt-1">
           Privacy Policy

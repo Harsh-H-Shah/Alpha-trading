@@ -9,17 +9,17 @@ const Navbar = () => {
   return (
     <nav className="h-16 bg-black flex flex-row justify-between items-center font-serif shadow-md">
       <Link to="/">
-        <img src={Logo} alt="Logo" className="h-16" />
+        <img src={Logo} alt="Logo" className="h-16 w-full" />
       </Link>
       <section className="flex flex-row justify-between text-white text-xl">
         <Link to="/">
           <p className="mx-12">Home</p>
         </Link>
-        <Link to="/playground">
-          <p className="mx-12">Playground</p>
+        <Link to="/portfolio">
+          <p className="mx-12">Portfolio</p>
         </Link>
-        <Link to="/blog">
-          <p className="mx-12">Blog</p>
+        <Link to="/news">
+          <p className="mx-12">News</p>
         </Link>
         <Link to="/about">
           <p className="mx-12">About</p>
