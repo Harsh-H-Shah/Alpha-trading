@@ -10,14 +10,14 @@ const LandingPage = () => {
       <Navbar />
       <section className="flex flex-row justify-between content-center">
         <div className="flex flex-col items-center justify-center w-1/2">
-          <h1 className="text-7xl font-display font-extrabold -mt-10">
+          <h1 className="text-7xl font-display font-extrabold -mt-10 select-none">
             Alpha Trading
           </h1>
-          <h1 className="text-4xl font-sans font-bold mt-10">
+          <h1 className="text-4xl font-sans font-bold mt-10 select-none">
             Think stocks
             <br /> differently
           </h1>
-          <Link to="/playground">
+          <Link to="/portfolio">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6">
               Get started
             </button>

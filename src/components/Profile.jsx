@@ -29,7 +29,7 @@ const Profile = () => {
         className="text-white text-xl mr-4"
         onClick={() => setDropDown(!dropDown)}
       >
-        {user.email}
+        {user.displayName}
       </button>
       {dropDown && (
         <div

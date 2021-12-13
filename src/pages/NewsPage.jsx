@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import BlogPost from '../components/BlogPost';
 import LoadingScreen from '../components/LoadingScreen';
 
-const BlogPage = () => {
+const NewsPage = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -17,7 +17,6 @@ const BlogPage = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setBlogs(response.item);
         setLoading(false);
       })
@@ -34,7 +33,7 @@ const BlogPage = () => {
           <Navbar />
           <section className="flex flex-col justify-center items-center mt-8">
             <h1 className="text-6xl font-bold font-display text-center">
-              Blogs
+              Stock News
             </h1>
             {blogs &&
               blogs.map((blog, index) => <BlogPost blog={blog} key={index} />)}
@@ -46,4 +45,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default NewsPage;
