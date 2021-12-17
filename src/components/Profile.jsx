@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 import auth from '../firebase';
 import { signOut } from 'firebase/auth';
+import useNavigate from 'react-router-dom';
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
   const [dropDown, setDropDown] = useState(false);
   const Signout = () => {
@@ -13,6 +15,7 @@ const Profile = () => {
     if (userConfirmSignOut) {
       signOut(auth)
         .then(() => {
+          navigate('/login');
           setUser(null);
         })
         .catch((error) => {

@@ -10,11 +10,12 @@ import { UserContext } from '../context/UserContext';
 import { PricesContext } from '../context/PricesContext';
 
 const PortfolioPage = () => {
-  const [indice, setIndice] = useState('NIFTY 50');
+  const [indice, setIndice] = useState('NIFTY%2050');
   const { prices, setPrices } = useContext(PricesContext);
   const [loading, setLoading] = useState(true);
   const { balance } = useContext(BalanceContext);
   const { user } = useContext(UserContext);
+  console.log(user);
   const options = [
     { label: 'NIFTY 50', value: 'NIFTY%2050' },
     { label: 'NIFTY 100', value: 'NIFTY%20100' },
