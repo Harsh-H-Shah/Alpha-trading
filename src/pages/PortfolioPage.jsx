@@ -31,7 +31,7 @@ const PortfolioPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate('/');
     } else {
       fetch(
         'https://latest-stock-price.p.rapidapi.com/price?Indices=NIFTY%2050',
