@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 const PrivacyPolicyPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <section className="m-10 font-sans">
         <h1 className="text-xl font-bold">Privacy Policy for Alpha Trading</h1>
@@ -133,7 +133,7 @@ const PrivacyPolicyPage = () => {
           efforts to promptly remove such information from our records.
         </p>
       </section>
-    </div>
+    </>
   );
 };
 

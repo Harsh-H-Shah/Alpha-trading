@@ -41,47 +41,45 @@ const SellPrice = (share, key) => {
     setIsOpen(false);
   };
   return (
-    <div key={key}>
-      <div
+    <article key={key}>
+      <section
         onClick={() => setIsOpen(!isOpen)}
         className="m-4 flex flex-row cursor-pointer items-center justify-between bg-blue-300 text-blue-500 bg-opacity-25 border-blue-600 rounded-md border-2 px-4 py-2"
       >
         <p className="text-lg font-normal font-sans">{share.share.symbol}</p>
         <p className="text-lg ml-4 mr-2">Quantity : {share.share.quantity}</p>
         <p className="text-lg ml-2">Bought at price : {share.share.price}</p>
-      </div>
+      </section>
       {isOpen && (
-        <div className="m-4 shadow-neuShadow rounded-md border-2 p-4">
-          <form>
-            <label htmlFor="quantity">Enter quantity :</label>
-            <input
-              type="number"
-              name="quantity"
-              className="border-none rounded-sm mx-4"
-              ref={quantityRef}
-              required
-            ></input>
-            <button
-              className="bg-blue-500 text-white px-4 rounded-sm mx-4"
-              onClick={(e) => {
-                handleSell(
-                  e,
-                  share,
-                  quantityRef.current.value,
-                  balance,
-                  setBalance,
-                  shares,
-                  setShares,
-                  prices
-                );
-              }}
-            >
-              Sell
-            </button>
-          </form>
-        </div>
+        <form className="m-4 shadow-neuShadow rounded-md border-2 p-4">
+          <label htmlFor="quantity">Enter quantity :</label>
+          <input
+            type="number"
+            name="quantity"
+            className="border-none rounded-sm mx-4"
+            ref={quantityRef}
+            required
+          ></input>
+          <button
+            className="bg-blue-500 text-white px-4 rounded-sm mx-4"
+            onClick={(e) => {
+              handleSell(
+                e,
+                share,
+                quantityRef.current.value,
+                balance,
+                setBalance,
+                shares,
+                setShares,
+                prices
+              );
+            }}
+          >
+            Sell
+          </button>
+        </form>
       )}
-    </div>
+    </article>
   );
 };
 

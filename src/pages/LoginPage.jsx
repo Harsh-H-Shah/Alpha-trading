@@ -88,9 +88,9 @@ const LoginPage = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div>
+    <>
       <Navbar />
-      <div className="w-screen flex flex-col justify-center items-center h-5/6">
+      <section className="w-screen flex flex-col justify-center items-center h-5/6">
         <form className="flex flex-col bg-primary shadow-pn  rounded-lg p-7 mt-14 w-4/6 font-sans  ">
           <h1 className="font-semibold font-sans text-2xl text-center">
             Login
@@ -160,8 +160,8 @@ const LoginPage = () => {
             </button>
           </section>
         </form>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 

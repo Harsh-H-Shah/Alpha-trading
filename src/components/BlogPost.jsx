@@ -2,8 +2,8 @@ import React from 'react';
 
 const BlogPost = (blog) => {
   return (
-    <div className="shadow-neuShadow rounded-sm m-10 p-10 font-sans max-w-4xl">
-      <p>{blog.blog.pubDate.slice(6, 16)}</p>
+    <article className="shadow-neuShadow rounded-sm m-6 p-10 font-sans w-3/4">
+      <p>{blog.blog.pubDate.slice(5, 16)}</p>
       <a
         href={blog.blog.link}
         target="_blank"
@@ -24,7 +24,7 @@ const BlogPost = (blog) => {
           Click here
         </a>
       </p>
-    </div>
+    </article>
   );
 };
 
