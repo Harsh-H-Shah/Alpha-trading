@@ -6,7 +6,7 @@ import Banner from '../static/images/Landing.png';
 
 const LandingPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <section className="flex flex-row justify-between content-center">
         <div className="flex flex-col items-center justify-center w-1/2">
@@ -26,7 +26,7 @@ const LandingPage = () => {
         <img src={Banner} alt="Banner" className="h-screen" />
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -24,7 +24,7 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <article>
       <button
         className="text-white text-xl mr-4"
         onClick={() => setDropDown(!dropDown)}
@@ -57,7 +57,7 @@ const Profile = () => {
           </div>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

@@ -76,7 +76,7 @@ const PortfolioPage = () => {
     setLoading(false);
   };
   return (
-    <div>
+    <>
       {loading ? (
         <LoadingScreen />
       ) : (
@@ -123,7 +123,7 @@ const PortfolioPage = () => {
           <Footer />
         </>
       )}
-    </div>
+    </>
   );
 };
 

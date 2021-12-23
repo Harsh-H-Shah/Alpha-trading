@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 const AboutPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <section className="my-10 mx-10">
         <h1 className="text-2xl font-sans font-bold">About us</h1>
@@ -45,7 +45,7 @@ const AboutPage = () => {
         </p>
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 

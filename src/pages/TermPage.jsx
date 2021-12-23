@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 const TermPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <section className="m-10 font-sans">
         <h1 className="text-xl font-bold">Terms and conditions</h1>
@@ -74,7 +74,7 @@ const TermPage = () => {
           causes breach of these Terms and Conditions.
         </p>
       </section>
-    </div>
+    </>
   );
 };
 
