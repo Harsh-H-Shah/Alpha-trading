@@ -81,7 +81,6 @@ const BuyPrice = (price, key) => {
               Buy
             </button>
           </form>
-        </div>
       )}
     </article>
   );
