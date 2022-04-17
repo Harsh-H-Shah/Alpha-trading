@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import BlogPost from '../components/BlogPost';
 import LoadingScreen from '../components/LoadingScreen';
+import DropNav from '../components/DropNav';
 
 const NewsPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -31,8 +32,9 @@ const NewsPage = () => {
       ) : (
         <>
           <Navbar />
+          <DropNav />
           <section className="flex flex-col justify-center items-center mt-8">
-            <h1 className="text-6xl font-bold font-display text-center">
+            <h1 className="text-3xl lp:text-5xl dp:text-6xl font-bold font-display text-center">
               Stock News
             </h1>
             {blogs &&

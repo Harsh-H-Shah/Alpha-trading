@@ -1,10 +1,12 @@
 import React from 'react';
+import DropNav from '../components/DropNav';
 import Navbar from '../components/Navbar';
 
 const TermPage = () => {
   return (
     <>
       <Navbar />
+      <DropNav />
       <section className="m-10 font-sans">
         <h1 className="text-xl font-bold">Terms and conditions</h1>
         <p>Welcome to Alpha trading!</p>
