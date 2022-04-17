@@ -1,6 +1,6 @@
-import React, { useState, useContext, useRef } from 'react';
-import { BalanceContext } from '../context/BalanceContext';
-import { ShareContext } from '../context/ShareContext';
+import React, { useState, useContext, useRef } from "react";
+import { BalanceContext } from "../context/BalanceContext";
+import { ShareContext } from "../context/ShareContext";
 
 const BuyPrice = (price, key) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,10 +27,10 @@ const BuyPrice = (price, key) => {
     <article key={key}>
       <section
         className={
-          'm-4 flex flex-row cursor-pointer items-center justify-between' +
+          "m-4 flex flex-row cursor-pointer items-center justify-between" +
           (price.price.open - price.price.lastPrice < 0
-            ? ' bg-green-300 text-green-500 bg-opacity-25 border-green-600 rounded-md border-2 px-4 py-2'
-            : ' bg-red-300 text-red-500 bg-opacity-25 border-red-600 rounded-md border-2 px-4 py-2')
+            ? " bg-green-300 text-green-500 bg-opacity-25 border-green-600 rounded-md border-2 px-4 py-2"
+            : " bg-red-300 text-red-500 bg-opacity-25 border-red-600 rounded-md border-2 px-4 py-2")
         }
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -38,7 +38,7 @@ const BuyPrice = (price, key) => {
         <p>
           {price.price.lastPrice}
           <span className="text-lg ml-4 mr-2 font-bold">
-            {price.price.open - price.price.lastPrice < 0 ? '↑' : '↓'}
+            {price.price.open - price.price.lastPrice < 0 ? "↑" : "↓"}
           </span>
           {price.price.pChange}%
         </p>
@@ -66,15 +66,15 @@ const BuyPrice = (price, key) => {
                 ) {
                   handleBuy(e, price, quantityRef.current.value, setBalance);
                 } else {
-                  alert('Insufficient balance');
+                  alert("Insufficient balance");
                 }
                 if (quantityRef.current.value <= 0) {
-                  alert('Enter a quantity greater than 0');
+                  alert("Enter a quantity greater than 0");
                 } else if (
                   Math.floor(quantityRef.current.value) !==
                   Number(quantityRef.current.value)
                 ) {
-                  alert('Enter an integer quantity');
+                  alert("Enter an integer quantity");
                 }
               }}
             >
