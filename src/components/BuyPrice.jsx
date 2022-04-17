@@ -46,7 +46,9 @@ const BuyPrice = (price, key) => {
       {isOpen && (
         <div className="m-4 shadow-neuShadow rounded-md border-2 p-4">
           <form>
-            <label htmlFor="quantity">Enter quantity :</label>
+            <label htmlFor="quantity" className="mx-4 mb-4">
+              Enter quantity :
+            </label>
             <input
               type="text"
               name="quantity"
@@ -54,7 +56,7 @@ const BuyPrice = (price, key) => {
               ref={quantityRef}
             ></input>
             <button
-              className="bg-blue-500 text-white px-4 rounded-sm mx-4"
+              className="bg-blue-500 text-white px-4 rounded-sm mx-4 mt-4"
               onClick={(e) => {
                 if (
                   sufficientBalance(

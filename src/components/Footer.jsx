@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="flex flex-row justify-evenly font-sans font-light align-middle bg-black">
-      <section className="flex flex-col content-end mx-10 text-lg text-white tracking-wider mb-8">
-        <img src={Logo} alt="logo" className="h-28" />
+    <footer className="flex flex-col tb:flex-row tb:place-content-between justify-evenly font-sans font-light align-middle bg-black">
+      <section className="flex flex-col align-middle mx-10 text-sm tb:text-lg text-white tracking-wider">
+        <img src={Logo} alt="logo" className="w-36 tb:w-full tb:h-28" />
         <p>Alpha Trading Ltd.</p>
         <div className="flex flex-row justify-between mt-4">
           <a href="www.facebook.com">
@@ -24,32 +24,32 @@ const Footer = () => {
         </div>
       </section>
       <section className="flex flex-col content-end mx-10 text-white tracking-wider">
-        <p className="font-medium text-xl my-6">Products</p>
-        <Link to="/portfolio" className="mt-1">
+        <p className="font-medium text-lg tb:text-xl my-6">Products</p>
+        <Link to="/portfolio" className="mt-1 text-sm tb:text-lg">
           Playground
         </Link>
-        <Link to="/portfolio" className="mt-1">
+        <Link to="/portfolio" className="mt-1 text-sm tb:text-lg">
           Stock Prices
         </Link>
-        <Link to="/news" className="mt-1">
+        <Link to="/news" className="mt-1 text-sm tb:text-lg">
           News
         </Link>
-        <Link to="/news" className="mt-1">
+        <Link to="/news" className="mt-1 text-sm tb:text-lg">
           Guidances
         </Link>
       </section>
-      <section className="flex flex-col content-end mx-10 text-white tracking-wider">
-        <p className="font-medium text-xl my-6">Alpha</p>
-        <Link to="/about" className="mt-1">
+      <section className="flex flex-col content-end mx-10 text-white tracking-wider mb-6 tb:mb-4 lp:mb-2">
+        <p className="font-medium text-lg tb:text-xl my-6">Alpha</p>
+        <Link to="/about" className="mt-1 text-sm tb:text-lg">
           About us
         </Link>
-        <Link to="/about" className="mt-1">
+        <Link to="/about" className="mt-1 text-sm tb:text-lg">
           Help and support
         </Link>
-        <Link to="/privacy-policy" className="mt-1">
+        <Link to="/privacy-policy" className="mt-1 text-sm tb:text-lg">
           Privacy Policy
         </Link>
-        <Link to="/terms" className="mt-1">
+        <Link to="/terms" className="mt-1 text-sm tb:text-lg">
           Terms of Use
         </Link>
       </section>

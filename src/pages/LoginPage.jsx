@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef } from 'react';
 import Navbar from '../components/Navbar';
+import DropNav from '../components/DropNav';
 import { Navigate, Link } from 'react-router-dom';
 import auth from '../firebase';
 import { signInWithEmailAndPassword } from '@firebase/auth';
@@ -90,8 +91,9 @@ const LoginPage = () => {
   return (
     <div>
       <Navbar />
+      <DropNav />
       <div className="w-screen flex flex-col justify-center items-center h-5/6">
-        <form className="flex flex-col bg-primary shadow-pn  rounded-lg p-7 mt-14 w-4/6 font-sans  ">
+        <form className="flex flex-col bg-primary shadow-pn  rounded-lg p-7 mt-14 w-5/6 tb:w-4/6 font-sans  ">
           <h1 className="font-semibold font-sans text-2xl text-center">
             Login
           </h1>
@@ -141,9 +143,9 @@ const LoginPage = () => {
             .
           </div>
           <hr></hr>
-          <section className="flex flex-row justify-evenly items-center">
+          <section className="flex flex-row justify-between items-center">
             <button
-              className="flex text-lg font-sans text-red-50 w-max bg-red-500 px-4 py-1 mt-5 self-center rounded-md"
+              className="flex text-sm tb:text-lg font-sans text-red-50 w-6/12 mx-2 tb:mx-0 tb:w-max bg-red-500 px-2 tb:px-4 py-1 mt-5 self-center rounded-md"
               onClick={(e) => {
                 handleGoogle(e);
               }}
@@ -151,7 +153,7 @@ const LoginPage = () => {
               Sign up with Google
             </button>
             <button
-              className="flex text-lg font-sans text-red-50 w-max bg-blue-600 px-4 py-1 mt-5 self-center rounded-md"
+              className="flex text-sm tb:text-lg font-sans text-red-50 w-6/12 mx-2 tb:mx-0 tb:w-max bg-blue-600 px-2 tb:px-4 py-1 mt-5 self-center rounded-md"
               onClick={(e) => {
                 handleTwitter(e);
               }}

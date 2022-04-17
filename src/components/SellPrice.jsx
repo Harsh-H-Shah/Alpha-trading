@@ -35,7 +35,8 @@ const SellPrice = (share, key) => {
       const finalShares = newShares.filter((s) => s.quantity > 0);
       setShares(finalShares);
       const sellingStock = prices.find((p) => p.symbol === share.share.symbol);
-      const newBalance = Number(sellingStock.lastPrice) * quantity;
+      const newBalance =
+        Math.round(Number(sellingStock.lastPrice) * quantity * 100) / 100;
       setBalance(Number(balance) + newBalance);
     }
     setIsOpen(false);
@@ -44,25 +45,27 @@ const SellPrice = (share, key) => {
     <div key={key}>
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="m-4 flex flex-row cursor-pointer items-center justify-between bg-blue-300 text-blue-500 bg-opacity-25 border-blue-600 rounded-md border-2 px-4 py-2"
+        className="m-4 flex flex-row cursor-pointer items-center text-sm w-72 lp:w-full lp:text-lg justify-between bg-blue-300 text-blue-500 bg-opacity-25 border-blue-600 rounded-md border-2 px-4 py-2"
       >
-        <p className="text-lg font-normal font-sans">{share.share.symbol}</p>
-        <p className="text-lg ml-4 mr-2">Quantity : {share.share.quantity}</p>
-        <p className="text-lg ml-2">Bought at price : {share.share.price}</p>
+        <p>{share.share.symbol}</p>
+        <p className="ml-4 mr-2">Quantity : {share.share.quantity}</p>
+        <p className="ml-2">Bought at price : {share.share.price}</p>
       </div>
       {isOpen && (
         <div className="m-4 shadow-neuShadow rounded-md border-2 p-4">
           <form>
-            <label htmlFor="quantity">Enter quantity :</label>
+            <label htmlFor="quantity" className="ml-4 lp:ml-0">
+              Enter quantity :
+            </label>
             <input
               type="number"
               name="quantity"
-              className="border-none rounded-sm mx-4"
+              className="border-none rounded-sm mx-4 mt-2 lp:mt-0"
               ref={quantityRef}
               required
             ></input>
             <button
-              className="bg-blue-500 text-white px-4 rounded-sm mx-4"
+              className="bg-blue-500 text-white px-4 rounded-sm mx-4 mt-4 lp:mt-0"
               onClick={(e) => {
                 handleSell(
                   e,

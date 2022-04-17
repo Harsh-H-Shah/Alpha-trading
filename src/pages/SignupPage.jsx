@@ -4,6 +4,7 @@ import auth from '../firebase';
 import { UserContext } from '../context/UserContext';
 import Navbar from '../components/Navbar';
 import { Link, Navigate } from 'react-router-dom';
+import DropNav from '../components/DropNav';
 
 const SignupPage = () => {
   const { user, setUser } = useContext(UserContext);
@@ -44,8 +45,9 @@ const SignupPage = () => {
   return (
     <div>
       <Navbar />
+      <DropNav />
       <div className="w-screen flex flex-col justify-center items-center h-5/6">
-        <form className="flex flex-col bg-primary shadow-pn  rounded-lg p-7 mt-14 w-4/6 font-sans">
+        <form className="flex flex-col bg-primary shadow-pn  rounded-lg p-7 mt-14 w-5/6 tb:w-4/6 font-sans">
           <div className="font-bold text-2xl font-sans tb:text-3xl text-center">
             Sign Up
           </div>

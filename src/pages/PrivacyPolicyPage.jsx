@@ -1,10 +1,12 @@
 import React from 'react';
+import DropNav from '../components/DropNav';
 import Navbar from '../components/Navbar';
 
 const PrivacyPolicyPage = () => {
   return (
     <div>
       <Navbar />
+      <DropNav />
       <section className="m-10 font-sans">
         <h1 className="text-xl font-bold">Privacy Policy for Alpha Trading</h1>
         <p>
