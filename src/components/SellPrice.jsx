@@ -1,7 +1,7 @@
-import React, { useState, useContext, useRef } from 'react';
-import { BalanceContext } from '../context/BalanceContext';
-import { ShareContext } from '../context/ShareContext';
-import { PricesContext } from '../context/PricesContext';
+import React, { useState, useContext, useRef } from "react";
+import { BalanceContext } from "../context/BalanceContext";
+import { ShareContext } from "../context/ShareContext";
+import { PricesContext } from "../context/PricesContext";
 
 const SellPrice = (share, key) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const SellPrice = (share, key) => {
   ) => {
     e.preventDefault();
     if (quantity > Number(share.share.quantity)) {
-      alert('You dont have enough shares');
+      alert("You dont have enough shares");
     } else {
       const newShares = shares.map((s) => {
         if (s.symbol === share.share.symbol) {

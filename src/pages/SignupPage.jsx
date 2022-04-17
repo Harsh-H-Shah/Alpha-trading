@@ -1,10 +1,10 @@
-import React, { useState, useContext, useRef } from 'react';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import auth from '../firebase';
-import { UserContext } from '../context/UserContext';
-import Navbar from '../components/Navbar';
-import { Link, Navigate } from 'react-router-dom';
-import DropNav from '../components/DropNav';
+import React, { useState, useContext, useRef } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import auth from "../firebase";
+import { UserContext } from "../context/UserContext";
+import Navbar from "../components/Navbar";
+import { Link, Navigate } from "react-router-dom";
+import DropNav from "../components/DropNav";
 
 const SignupPage = () => {
   const { user, setUser } = useContext(UserContext);
@@ -12,14 +12,14 @@ const SignupPage = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
-  const [samasya, setSamasya] = useState('');
+  const [samasya, setSamasya] = useState("");
   const handleSubmit = async (e, auth, name, email, password) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        console.log('Signed up');
-        setSamasya('');
+        console.log("Signed up");
+        setSamasya("");
         setUser(userCredential.user);
         updateProfile(auth.currentUser, {
           displayName: `${name}`,
@@ -110,7 +110,7 @@ const SignupPage = () => {
                 );
               } else {
                 e.preventDefault();
-                setSamasya('Passwords did not match');
+                setSamasya("Passwords did not match");
               }
             }}
             className="mt-4 w-28 h-8 items-center rounded-md shadow-md text-gray-50 text-md bg-gray-900 font-medium"

@@ -1,5 +1,5 @@
-import React from 'react';
-import BuyPrice from './BuyPrice';
+import React from "react";
+import BuyPrice from "./BuyPrice";
 
 const StockList = (prices) => {
   return (

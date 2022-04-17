@@ -1,6 +1,6 @@
-import React from 'react';
-import Logo from '../static/images/LogoBlack.png';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Logo from "../static/images/LogoBlack.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (

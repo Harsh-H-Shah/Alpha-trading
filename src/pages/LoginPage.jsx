@@ -1,21 +1,21 @@
-import React, { useState, useContext, useRef } from 'react';
-import Navbar from '../components/Navbar';
-import DropNav from '../components/DropNav';
-import { Navigate, Link } from 'react-router-dom';
-import auth from '../firebase';
-import { signInWithEmailAndPassword } from '@firebase/auth';
-import { UserContext } from '../context/UserContext';
+import React, { useState, useContext, useRef } from "react";
+import Navbar from "../components/Navbar";
+import DropNav from "../components/DropNav";
+import { Navigate, Link } from "react-router-dom";
+import auth from "../firebase";
+import { signInWithEmailAndPassword } from "@firebase/auth";
+import { UserContext } from "../context/UserContext";
 import {
   signInWithPopup,
   GoogleAuthProvider,
   TwitterAuthProvider,
-} from 'firebase/auth';
+} from "firebase/auth";
 
 const LoginPage = () => {
   const { user, setUser } = useContext(UserContext);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [samasya, setSamasya] = useState('');
+  const [samasya, setSamasya] = useState("");
 
   const handleLogin = (e, auth, email, password) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const LoginPage = () => {
       .then((userCredential) => {
         // Signed in
         setUser(userCredential.user);
-        localStorage.setItem('user', JSON.stringify(userCredential.user));
+        localStorage.setItem("user", JSON.stringify(userCredential.user));
         // ...
       })
       .catch((error) => {
@@ -39,7 +39,7 @@ const LoginPage = () => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        localStorage.setItem('token', token);
+        localStorage.setItem("token", token);
         // The signed-in user info.
         setUser(result.user);
         // ...

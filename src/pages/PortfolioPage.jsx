@@ -1,48 +1,48 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Holdings from '../components/Holdings';
-import LoadingScreen from '../components/LoadingScreen';
-import Navbar from '../components/Navbar';
-import StockList from '../components/StockList';
-import { BalanceContext } from '../context/BalanceContext';
-import { UserContext } from '../context/UserContext';
-import { PricesContext } from '../context/PricesContext';
-import DropNav from '../components/DropNav';
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import Holdings from "../components/Holdings";
+import LoadingScreen from "../components/LoadingScreen";
+import Navbar from "../components/Navbar";
+import StockList from "../components/StockList";
+import { BalanceContext } from "../context/BalanceContext";
+import { UserContext } from "../context/UserContext";
+import { PricesContext } from "../context/PricesContext";
+import DropNav from "../components/DropNav";
 
 const PortfolioPage = () => {
   const { prices, setPrices } = useContext(PricesContext);
   const { balance } = useContext(BalanceContext);
   const { user } = useContext(UserContext);
-  const [indice, setIndice] = useState('NIFTY%2050');
+  const [indice, setIndice] = useState("NIFTY%2050");
   const [loading, setLoading] = useState(true);
   const [toggleHold, setToggleHold] = useState(false);
   const width = window.innerWidth;
   const options = [
-    { label: 'NIFTY 50', value: 'NIFTY%2050' },
-    { label: 'NIFTY 100', value: 'NIFTY%20100' },
-    { label: 'NIFTY 200', value: 'NIFTY%20200' },
-    { label: 'NIFTY 500', value: 'NIFTY%20500' },
-    { label: 'NIFTY BANK', value: 'NIFTY%20BANK' },
-    { label: 'NIFTY IT', value: 'NIFTY%20IT' },
-    { label: 'NIFTY MIDCAP 50', value: 'NIFTY%20MIDCAP%2050' },
-    { label: 'NIFTY AUTO', value: 'NIFTY%20AUTO' },
-    { label: 'NIFTY FMCG', value: 'NIFTY%20FMCG' },
-    { label: 'NIFTY FIN SERVICES', value: 'NIFTY%20FIN%20SERVICE' },
+    { label: "NIFTY 50", value: "NIFTY%2050" },
+    { label: "NIFTY 100", value: "NIFTY%20100" },
+    { label: "NIFTY 200", value: "NIFTY%20200" },
+    { label: "NIFTY 500", value: "NIFTY%20500" },
+    { label: "NIFTY BANK", value: "NIFTY%20BANK" },
+    { label: "NIFTY IT", value: "NIFTY%20IT" },
+    { label: "NIFTY MIDCAP 50", value: "NIFTY%20MIDCAP%2050" },
+    { label: "NIFTY AUTO", value: "NIFTY%20AUTO" },
+    { label: "NIFTY FMCG", value: "NIFTY%20FMCG" },
+    { label: "NIFTY FIN SERVICES", value: "NIFTY%20FIN%20SERVICE" },
   ];
   const navigate = useNavigate();
   useEffect(() => {
     if (!user) {
-      navigate('/');
+      navigate("/");
     } else {
       fetch(
-        'https://latest-stock-price.p.rapidapi.com/price?Indices=NIFTY%2050',
+        "https://latest-stock-price.p.rapidapi.com/price?Indices=NIFTY%2050",
         {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'x-rapidapi-host': 'latest-stock-price.p.rapidapi.com',
-            'x-rapidapi-key':
-              'dd30c0fdc8msh523335511414c57p184161jsnfc8877fab7bb',
+            "x-rapidapi-host": "latest-stock-price.p.rapidapi.com",
+            "x-rapidapi-key":
+              "dd30c0fdc8msh523335511414c57p184161jsnfc8877fab7bb",
           },
         }
       )
@@ -61,10 +61,10 @@ const PortfolioPage = () => {
     setLoading(true);
     const url = `https://latest-stock-price.p.rapidapi.com/price?Indices=${indice}`;
     fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'x-rapidapi-host': 'latest-stock-price.p.rapidapi.com',
-        'x-rapidapi-key': 'dd30c0fdc8msh523335511414c57p184161jsnfc8877fab7bb',
+        "x-rapidapi-host": "latest-stock-price.p.rapidapi.com",
+        "x-rapidapi-key": "dd30c0fdc8msh523335511414c57p184161jsnfc8877fab7bb",
       },
     })
       .then((response) => response.json())
@@ -97,8 +97,8 @@ const PortfolioPage = () => {
               <li
                 className={`${
                   toggleHold
-                    ? 'text-blue-500'
-                    : 'text-gray-500 border-2 px-2 py-1 rounded-sm'
+                    ? "text-blue-500"
+                    : "text-gray-500 border-2 px-2 py-1 rounded-sm"
                 } text-xl font-display mr-4`}
                 onClick={() => {
                   setToggleHold(false);
@@ -109,8 +109,8 @@ const PortfolioPage = () => {
               <li
                 className={`${
                   toggleHold
-                    ? 'text-gray-500 border-2 px-2 py-1 rounded-sm'
-                    : 'text-blue-500'
+                    ? "text-gray-500 border-2 px-2 py-1 rounded-sm"
+                    : "text-blue-500"
                 } text-xl font-display mr-4`}
                 onClick={() => {
                   setToggleHold(true);

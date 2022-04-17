@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import BlogPost from '../components/BlogPost';
-import LoadingScreen from '../components/LoadingScreen';
-import DropNav from '../components/DropNav';
+import React, { useEffect, useState } from "react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import BlogPost from "../components/BlogPost";
+import LoadingScreen from "../components/LoadingScreen";
+import DropNav from "../components/DropNav";
 
 const NewsPage = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch('https://mboum-finance.p.rapidapi.com/ne/news/?symbol=AAPL%2CMSFT', {
-      method: 'GET',
+    fetch("https://mboum-finance.p.rapidapi.com/ne/news/?symbol=AAPL%2CMSFT", {
+      method: "GET",
       headers: {
-        'x-rapidapi-host': 'mboum-finance.p.rapidapi.com',
-        'x-rapidapi-key': 'dd30c0fdc8msh523335511414c57p184161jsnfc8877fab7bb',
+        "x-rapidapi-host": "mboum-finance.p.rapidapi.com",
+        "x-rapidapi-key": "dd30c0fdc8msh523335511414c57p184161jsnfc8877fab7bb",
       },
     })
       .then((response) => response.json())

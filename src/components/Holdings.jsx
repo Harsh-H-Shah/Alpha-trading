@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import SellPrice from './SellPrice';
-import { ShareContext } from '../context/ShareContext';
+import React, { useContext } from "react";
+import SellPrice from "./SellPrice";
+import { ShareContext } from "../context/ShareContext";
 
 const Holdings = () => {
   const { shares } = useContext(ShareContext);

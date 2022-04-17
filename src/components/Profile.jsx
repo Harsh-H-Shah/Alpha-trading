@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
-import auth from '../firebase';
-import { signOut } from 'firebase/auth';
+import React, { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
+import auth from "../firebase";
+import { signOut } from "firebase/auth";
 
 const Profile = () => {
   const { user, setUser } = useContext(UserContext);
   const [dropDown, setDropDown] = useState(false);
   const Signout = () => {
     const userConfirmSignOut = window.confirm(
-      'Are you sure you want to sign out?'
+      "Are you sure you want to sign out?"
     );
     if (userConfirmSignOut) {
       signOut(auth)

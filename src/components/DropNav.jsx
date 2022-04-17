@@ -1,18 +1,18 @@
-import React, { useState, useContext } from 'react';
-import Logo from '../static/images/logoSmall.png';
-import hamburger from '../static/icons/hamburger.png';
-import close from '../static/icons/close.png';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import auth from '../firebase';
-import { signOut } from 'firebase/auth';
+import React, { useState, useContext } from "react";
+import Logo from "../static/images/logoSmall.png";
+import hamburger from "../static/icons/hamburger.png";
+import close from "../static/icons/close.png";
+import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import auth from "../firebase";
+import { signOut } from "firebase/auth";
 
 const DropNav = () => {
   const { user, setUser } = useContext(UserContext);
   const [openMenu, setOpenMenu] = useState(false);
   const Signout = () => {
     const userConfirmSignOut = window.confirm(
-      'Are you sure you want to sign out?'
+      "Are you sure you want to sign out?"
     );
     if (userConfirmSignOut) {
       signOut(auth)
@@ -49,7 +49,7 @@ const DropNav = () => {
           <section className="w-full flex flex-row items-center justify-between shadow-neuShadow">
             {user ? (
               <p className="mx-4">
-                Welcome,{' '}
+                Welcome,{" "}
                 <span className="text-lg font-sans">{user.displayName}</span>
               </p>
             ) : (

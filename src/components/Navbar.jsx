@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import Logo from '../static/images/LogoBlack.png';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import Profile from './Profile';
+import React, { useContext } from "react";
+import Logo from "../static/images/LogoBlack.png";
+import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import Profile from "./Profile";
 
 const Navbar = () => {
   const { user } = useContext(UserContext);

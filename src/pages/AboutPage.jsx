@@ -1,7 +1,7 @@
-import React from 'react';
-import DropNav from '../components/DropNav';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import React from "react";
+import DropNav from "../components/DropNav";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const AboutPage = () => {
   return (

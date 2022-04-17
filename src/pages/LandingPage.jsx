@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import DropNav from '../components/DropNav';
-import Banner from '../static/images/Landing.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import DropNav from "../components/DropNav";
+import Banner from "../static/images/Landing.png";
 
 const LandingPage = () => {
   return (

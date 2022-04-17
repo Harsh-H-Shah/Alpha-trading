@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const BlogPost = (blog) => {
   return (
@@ -18,7 +18,7 @@ const BlogPost = (blog) => {
         {blog.blog.description}
       </p>
       <p className="text-sm tb:text-lg my-2 tb:my-1">
-        To know more{' '}
+        To know more{" "}
         <a
           href={blog.blog.link}
           target="_blank"
