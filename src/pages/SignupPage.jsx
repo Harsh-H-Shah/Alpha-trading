@@ -43,14 +43,14 @@ const SignupPage = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div>
+    <>
       <Navbar />
       <DropNav />
       <div className="w-screen flex flex-col justify-center items-center h-5/6">
         <form className="flex flex-col bg-primary shadow-pn  rounded-lg p-7 mt-14 w-5/6 tb:w-4/6 font-sans">
-          <div className="font-bold text-2xl font-sans tb:text-3xl text-center">
+          <p className="font-bold text-2xl font-sans tb:text-3xl text-center">
             Sign Up
-          </div>
+          </p>
           {samasya && (
             <p className="text-sm tb:text-lg font-sans text-secondary-brightred text-center">
               {samasya}
@@ -117,7 +117,7 @@ const SignupPage = () => {
           >
             Sign Up
           </button>
-          <div className="mt-3 tb:mt-8 text-md tb:text-xl">
+          <p className="mt-3 tb:mt-8 text-md tb:text-xl">
             Already have an account?
             <Link to="/login">
               <span className="cursor-pointer underline underline-secondary-blue text-secondary-blue">
@@ -125,10 +125,10 @@ const SignupPage = () => {
               </span>
             </Link>
             .
-          </div>
+          </p>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

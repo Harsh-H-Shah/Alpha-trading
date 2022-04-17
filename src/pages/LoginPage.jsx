@@ -89,7 +89,7 @@ const LoginPage = () => {
     return <Navigate to="/" />;
   }
   return (
-    <div>
+    <>
       <Navbar />
       <DropNav />
       <div className="w-screen flex flex-col justify-center items-center h-5/6">
@@ -163,7 +163,7 @@ const LoginPage = () => {
           </section>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

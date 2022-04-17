@@ -24,8 +24,8 @@ const BuyPrice = (price, key) => {
     setIsOpen(false);
   };
   return (
-    <div key={key}>
-      <div
+    <article key={key}>
+      <section
         className={
           'm-4 flex flex-row cursor-pointer items-center justify-between' +
           (price.price.open - price.price.lastPrice < 0
@@ -42,7 +42,7 @@ const BuyPrice = (price, key) => {
           </span>
           {price.price.pChange}%
         </p>
-      </div>
+      </section>
       {isOpen && (
         <div className="m-4 shadow-neuShadow rounded-md border-2 p-4">
           <form>
@@ -83,7 +83,7 @@ const BuyPrice = (price, key) => {
           </form>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 const PrivacyPolicyPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <DropNav />
       <section className="m-10 font-sans">
@@ -135,7 +135,7 @@ const PrivacyPolicyPage = () => {
           efforts to promptly remove such information from our records.
         </p>
       </section>
-    </div>
+    </>
   );
 };
 

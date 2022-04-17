@@ -26,7 +26,7 @@ const NewsPage = () => {
       });
   }, []);
   return (
-    <div>
+    <>
       {loading ? (
         <LoadingScreen />
       ) : (
@@ -43,7 +43,7 @@ const NewsPage = () => {
           <Footer />
         </>
       )}
-    </div>
+    </>
   );
 };
 

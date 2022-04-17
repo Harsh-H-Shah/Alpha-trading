@@ -42,15 +42,15 @@ const SellPrice = (share, key) => {
     setIsOpen(false);
   };
   return (
-    <div key={key}>
-      <div
+    <article key={key}>
+      <section
         onClick={() => setIsOpen(!isOpen)}
         className="m-4 flex flex-row cursor-pointer items-center text-sm w-72 lp:w-full lp:text-lg justify-between bg-blue-300 text-blue-500 bg-opacity-25 border-blue-600 rounded-md border-2 px-4 py-2"
       >
         <p>{share.share.symbol}</p>
         <p className="ml-4 mr-2">Quantity : {share.share.quantity}</p>
         <p className="ml-2">Bought at price : {share.share.price}</p>
-      </div>
+      </section>
       {isOpen && (
         <div className="m-4 shadow-neuShadow rounded-md border-2 p-4">
           <form>
@@ -84,7 +84,7 @@ const SellPrice = (share, key) => {
           </form>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 

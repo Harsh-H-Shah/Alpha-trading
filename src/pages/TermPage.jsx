@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 const TermPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <DropNav />
       <section className="m-10 font-sans">
@@ -76,7 +76,7 @@ const TermPage = () => {
           causes breach of these Terms and Conditions.
         </p>
       </section>
-    </div>
+    </>
   );
 };
 

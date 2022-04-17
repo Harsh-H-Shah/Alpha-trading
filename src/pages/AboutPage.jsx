@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 
 const AboutPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <DropNav />
       <section className="my-10 mx-10">
@@ -47,7 +47,7 @@ const AboutPage = () => {
         </p>
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 

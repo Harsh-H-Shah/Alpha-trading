@@ -7,7 +7,7 @@ import Banner from '../static/images/Landing.png';
 
 const LandingPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <DropNav />
       <section className="flex flex-row justify-between items-center min-w-full">
@@ -32,7 +32,7 @@ const LandingPage = () => {
         />
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 
