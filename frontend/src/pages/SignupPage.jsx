@@ -38,6 +38,21 @@ const SignupPage = () => {
         setSamasya(error.message.slice(22, -2));
         // ..
       });
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: name,
+        email: email,
+        password: password,
+      }),
+    };
+    const response = await fetch(
+      'http://localhost:3001/register',
+      requestOptions
+    );
+    const data = await response.json();
+    console.log(data);
   };
   if (user) {
     return <Navigate to="/" />;
