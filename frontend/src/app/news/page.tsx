@@ -72,7 +72,7 @@ export default function NewsPage() {
           <div className="grid gap-4">
             {news.map((item) => (
               <a 
-                key={item.uuid || item.title} 
+                key={item.id || item.title} 
                 href={item.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
