@@ -1,5 +1,3 @@
-export async function fetchStockHistory(symbol: string) {
-  try {
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export async function fetchStockHistory(symbol: string) {

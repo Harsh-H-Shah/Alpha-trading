@@ -4,11 +4,12 @@ import { useTrading } from '@/context/TradingContext';
 export default function TradePanel() {
   const { symbol, price, refreshPortfolio } = useTrading();
   const [qty, setQty] = useState(1);
+  const [type, setType] = useState<'buy' | 'sell'>('buy');
   const [loading, setLoading] = useState(false);
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-  const handleTrade = async (type: 'buy' | 'sell') => {
-    if (!qty) return; // Ensure quantity is not zero or empty
+  const handleTrade = async () => {
+    if (!qty) return; 
     setLoading(true);
     try {
       const res = await fetch(`${API_URL}/api/trade`, {
@@ -17,7 +18,7 @@ export default function TradePanel() {
         body: JSON.stringify({
           symbol,
           type,
-          qty,
+          qty: Number(qty),
           price
         })
       });
@@ -26,7 +27,7 @@ export default function TradePanel() {
         alert("Trade Failed: " + data.error);
       } else {
         alert("Trade Executed Successfully!");
-        setAmount('');
+        setQty(1);
         refreshPortfolio();
       }
     } catch (e) {
@@ -79,8 +80,9 @@ export default function TradePanel() {
            <div className="relative">
              <input
                type="number"
-               value={amount}
-               onChange={(e) => setAmount(e.target.value)}
+               min="1"
+               value={qty}
+               onChange={(e) => setQty(Number(e.target.value))}
                className="w-full bg-[#0F172A] border border-[#1E293B] rounded-lg p-2.5 text-white text-sm font-mono focus:border-blue-500 outline-none"
                placeholder="0"
              />
@@ -91,7 +93,7 @@ export default function TradePanel() {
         <div className="pt-2">
            <div className="flex justify-between text-xs mb-2">
               <span className="text-gray-400">Est. Cost</span>
-              <span className="font-mono font-bold text-white">${(Number(amount) * price).toFixed(2)}</span>
+              <span className="font-mono font-bold text-white">${(qty * price).toFixed(2)}</span>
            </div>
            <button
              onClick={handleTrade}
