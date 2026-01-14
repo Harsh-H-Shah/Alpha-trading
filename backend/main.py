@@ -5,6 +5,9 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
+    "https://alpha-trading.vercel.app",
+    "https://alpha-trading-*.vercel.app",
+    "*", # Allow all for simplicity during demo/testing
 ]
 
 app.add_middleware(
