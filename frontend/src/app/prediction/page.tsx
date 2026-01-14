@@ -143,7 +143,7 @@ export default function PredictionPage() {
                         />
                         <Tooltip 
                           contentStyle={{ backgroundColor: '#020617', borderColor: '#1E293B', borderRadius: '8px' }}
-                          formatter={(value: number) => [`$${value.toFixed(2)}`, 'Price']}
+                          formatter={(value: any) => [`$${Number(value).toFixed(2)}`, 'Price']}
                         />
                         <ReferenceLine x={prediction.chartData.length - 2} stroke="#64748B" strokeDasharray="3 3" label="Today" />
                         <Area 
