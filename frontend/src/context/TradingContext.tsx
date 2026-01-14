@@ -4,9 +4,15 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
+interface Position {
+  symbol: string;
+  qty: number;
+  avg_price: number;
+}
+
 interface Portfolio {
   balance: number;
-  positions: Record<string, any>;
+  positions: Position[];
   history: any[];
 }
 
