@@ -4,6 +4,6 @@ yfinance
 pandas
 numpy
 scikit-learn
-torch --index-url https://download.pytorch.org/whl/cpu
+
 python-multipart
 gunicorn

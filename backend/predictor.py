@@ -1,70 +1,54 @@
 import yfinance as yf
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
-import torch
-import torch.nn as nn
-from backend.model import LSTMModel
-import os
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
 
-scaler = MinMaxScaler(feature_range=(-1, 1))
-
-def fetch_data(symbol, period="1y"): # Fetch last 1 year data
+def fetch_data(symbol, period="1y"): 
+    # Fetch last 1 year data
     ticker = yf.Ticker(symbol)
     df = ticker.history(period=period)
-    return df['Close'].values.reshape(-1, 1)
+    if 'Close' not in df.columns:
+        return np.array([])
+    return df['Close'].values
 
 def prepare_data(data, lookback):
     x, y = [], []
+    if len(data) <= lookback:
+        return np.array([]), np.array([])
+        
     for i in range(len(data) - lookback):
         x.append(data[i:(i+lookback)])
         y.append(data[i+lookback])
     return np.array(x), np.array(y)
 
 def train_and_predict(symbol):
-    lookback = 60 # Look back 60 days
+    lookback = 30 # Reduced lookback for simpler model
     data_raw = fetch_data(symbol)
     
     if len(data_raw) < lookback + 10:
         return {"error": "Not enough data"}
 
-    data_scaled = scaler.fit_transform(data_raw)
+    # Prepare features (X) and target (y)
+    # X = window of prices, y = next price
+    X, y = prepare_data(data_raw, lookback)
     
-    x_train, y_train = prepare_data(data_scaled, lookback)
+    if len(X) == 0:
+        return {"error": "Not enough data to train"}
+
+    # Train a lightweight Random Forest
+    # n_estimators=100 is fast and low memory
+    model = RandomForestRegressor(n_estimators=100, random_state=42)
+    model.fit(X, y)
     
-    x_train = torch.from_numpy(x_train).type(torch.Tensor)
-    y_train = torch.from_numpy(y_train).type(torch.Tensor)
-    
-    input_dim = 1
-    hidden_dim = 32
-    num_layers = 2
-    output_dim = 1
-    
-    model = LSTMModel(input_dim, hidden_dim, num_layers, output_dim)
-    criterion = nn.MSELoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
-    
-    num_epochs = 50 # Train quickly for demo
-    for epoch in range(num_epochs):
-        y_train_pred = model(x_train)
-        loss = criterion(y_train_pred, y_train)
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-        
     # Predict next day
-    last_sequence = data_scaled[-lookback:]
-    last_sequence = torch.from_numpy(last_sequence).type(torch.Tensor).view(1, lookback, 1)
+    last_sequence = data_raw[-lookback:].reshape(1, -1)
+    predicted_price = model.predict(last_sequence)[0]
     
-    with torch.no_grad():
-        future_pred_scaled = model(last_sequence)
-        
-    future_pred = scaler.inverse_transform(future_pred_scaled.numpy())
-    current_price = data_raw[-1][0]
-    predicted_price = future_pred[0][0]
+    current_price = data_raw[-1]
     
     # Prepare history for visualization (last 30 points)
-    last_30_days = data_raw[-30:].flatten().tolist()
+    last_30_days = data_raw[-30:].tolist()
     
     return {
         "symbol": symbol,
