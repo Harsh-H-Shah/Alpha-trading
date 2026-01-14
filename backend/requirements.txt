@@ -6,3 +6,5 @@ numpy
 scikit-learn
 torch
 python-multipart
+gunicorn
+pandas_ta
