@@ -1,10 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 interface Portfolio {
   balance: number;
-  positions: { symbol: string; qty: number; avg_price: number }[];
+  positions: Record<string, any>;
   history: any[];
 }
 
@@ -19,20 +21,22 @@ interface TradingContextType {
 
 const TradingContext = createContext<TradingContextType | undefined>(undefined);
 
-export function TradingProvider({ children }: { children: React.ReactNode }) {
+export function TradingProvider({ children }: { children: ReactNode }) {
   const [symbol, setSymbol] = useState('AAPL');
   const [price, setPrice] = useState(0);
   const [portfolio, setPortfolio] = useState<Portfolio | null>(null);
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-  const refreshPortfolio = () => setRefreshTrigger(prev => prev + 1);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/api/portfolio')
+  const refreshPortfolio = () => {
+    fetch(`${API_URL}/api/portfolio`)
       .then(res => res.json())
       .then(data => setPortfolio(data))
       .catch(err => console.error("Failed to fetch portfolio", err));
-  }, [refreshTrigger]);
+  };
+
+  // Initial fetch when component mounts
+  useEffect(() => {
+    refreshPortfolio();
+  }, []);
 
   return (
     <TradingContext.Provider value={{ symbol, setSymbol, price, setPrice, portfolio, refreshPortfolio }}>

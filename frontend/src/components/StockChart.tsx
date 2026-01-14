@@ -21,7 +21,7 @@ export default function StockChart() {
       
       setAnalyzing(true);
       try {
-          const res = await fetch(`http://localhost:8000/api/analyze/${symbol}`);
+          const res = await fetch(`${API_URL}/api/analyze/${symbol}`);
           const json = await res.json();
           setAnalysis(json);
       } catch (e) {
@@ -41,13 +41,14 @@ export default function StockChart() {
   ];
 
   const [error, setError] = useState<string | null>(null);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`http://localhost:8000/api/history/${symbol}?period=${period}&interval=${interval}`);
+        const res = await fetch(`${API_URL}/api/history/${symbol}?period=${period}&interval=${interval}`);
         if (!res.ok) throw new Error("Backend connection failed");
         const json = await res.json();
         if (json.error) throw new Error(json.error);

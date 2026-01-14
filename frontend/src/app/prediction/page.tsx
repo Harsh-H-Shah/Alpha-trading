@@ -8,12 +8,13 @@ export default function PredictionPage() {
   const [symbol, setSymbol] = useState('AAPL');
   const [loading, setLoading] = useState(false);
   const [prediction, setPrediction] = useState<any>(null);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
   const handlePredict = async () => {
     setLoading(true);
     setPrediction(null);
     try {
-      const res = await fetch(`http://localhost:8000/api/predict/${symbol}`);
+      const res = await fetch(`${API_URL}/api/predict/${symbol}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
 

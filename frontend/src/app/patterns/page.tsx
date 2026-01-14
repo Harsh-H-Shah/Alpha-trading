@@ -15,11 +15,12 @@ export default function PatternsPage() {
   const [results, setResults] = useState<ScanResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [scanned, setScanned] = useState(false);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
   const handleScan = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/scan');
+      const res = await fetch(`${API_URL}/api/scan`);
       const data = await res.json();
       setResults(data);
       setScanned(true);

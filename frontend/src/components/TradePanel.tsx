@@ -3,21 +3,21 @@ import { useTrading } from '@/context/TradingContext';
 
 export default function TradePanel() {
   const { symbol, price, refreshPortfolio } = useTrading();
-  const [amount, setAmount] = useState('');
-  const [type, setType] = useState<'buy' | 'sell'>('buy');
+  const [qty, setQty] = useState(1);
   const [loading, setLoading] = useState(false);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-  const handleTrade = async () => {
-    if (!amount) return;
+  const handleTrade = async (type: 'buy' | 'sell') => {
+    if (!qty) return; // Ensure quantity is not zero or empty
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/trade', {
+      const res = await fetch(`${API_URL}/api/trade`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           symbol,
           type,
-          qty: parseInt(amount),
+          qty,
           price
         })
       });

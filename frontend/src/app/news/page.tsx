@@ -14,6 +14,7 @@ interface NewsItem {
 export default function NewsPage() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -22,7 +23,7 @@ export default function NewsPage() {
         const allNews: NewsItem[] = [];
         
         for (const sym of symbols) {
-            const res = await fetch(`http://localhost:8000/api/news/${sym}`);
+            const res = await fetch(`${API_URL}/api/news/${sym}`);
             const json = await res.json();
             if (Array.isArray(json)) {
                 // Map yfinance structure to our interface

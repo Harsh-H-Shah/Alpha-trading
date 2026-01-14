@@ -1,6 +1,10 @@
 export async function fetchStockHistory(symbol: string) {
   try {
-    const response = await fetch(`http://localhost:8000/api/predict/${symbol}`);
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
+export async function fetchStockHistory(symbol: string) {
+  try {
+    const response = await fetch(`${API_URL}/api/predict/${symbol}`);
     if (!response.ok) {
         throw new Error('Failed to fetch data');
     }
