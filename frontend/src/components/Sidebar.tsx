@@ -11,7 +11,8 @@ export default function Sidebar() {
   const { logout } = useAuth();
 
   const links = [
-    { href: "/dashboard", label: "Terminal", icon: LayoutDashboard },
+    { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/terminal", label: "Terminal", icon: Activity },
     { href: "/explorer", label: "Markets", icon: Globe },
     { href: "/news", label: "Market Pulse", icon: Newspaper },
     { href: "/learn", label: "Academy", icon: GraduationCap },
