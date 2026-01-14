@@ -3,15 +3,18 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import { useAuth } from '@/context/AuthContext';
+
 export default function SignupPage() {
+  const { login } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual signup logic
-    console.log('Signup with:', name, email, password);
+    // For mock functionality, signup just logs you in
+    login(email);
   };
 
   return (

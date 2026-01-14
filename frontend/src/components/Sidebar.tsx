@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAuth } from '@/context/AuthContext';
 import { clsx } from "clsx";
 import { LayoutDashboard, Newspaper, GraduationCap, Activity, BrainCircuit, Settings, LogOut, Globe } from "lucide-react";
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { logout } = useAuth();
 
   const links = [
     { href: "/dashboard", label: "Terminal", icon: LayoutDashboard },
@@ -62,7 +64,10 @@ export default function Sidebar() {
           <Settings className="w-5 h-5" />
           <span className="hidden lg:block font-medium">Settings</span>
         </button>
-        <button className="flex items-center gap-3 px-3 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-xl w-full transition-colors mt-1 group">
+        <button 
+          onClick={logout}
+          className="flex items-center gap-3 px-3 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-xl w-full transition-colors mt-1 group"
+        >
           <LogOut className="w-5 h-5" />
           <span className="hidden lg:block font-medium">Logout</span>
         </button>

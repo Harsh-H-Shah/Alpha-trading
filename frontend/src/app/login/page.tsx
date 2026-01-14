@@ -3,14 +3,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import { useAuth } from '@/context/AuthContext';
+
 export default function LoginPage() {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual login logic (Firebase)
-    console.log('Login with:', email, password);
+    login(email);
   };
 
   return (
